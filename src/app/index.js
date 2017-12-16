@@ -14,8 +14,8 @@ class App extends React.Component{
             <div className="row"><Header/>
             </div>
             <div>
-                <Home name = {"vik"} age={27} user ={users} >
-              <p>this is awesome!</p>
+                <Home name = {"vik"} age={27}  >
+            
             </Home> 
             </div>
             </div>
