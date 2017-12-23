@@ -39,6 +39,7 @@ onChangeLinkName(newLink)
                 initialAge={27}  
                 greet={this.onGreet}
                 newlink={this.onChangeLinkName.bind(this)}
+                initiallink={this.state.homeLink}
                 >
             
             </Home> 
