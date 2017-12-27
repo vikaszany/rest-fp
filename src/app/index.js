@@ -1,53 +1,35 @@
 import React from "react"
 import {render} from "react-dom"
 
-import {Header} from "../app/components/Header"
+import { BrowserRouter as Router, Route, Link, browserHistory, Routerchange  } from 'react-router-dom'
+import {Switch} from 'react-router'; 
+
+import {Root} from "../app/components/Root"
 import {Home} from  "../app/components/Home"
+import {User} from  "../app/components/User"
+
+import createHistory from 'history/createBrowserHistory'
+import { createHashHistory } from 'history'
+export const history = createHashHistory()
+
 class App extends React.Component{
-    constructor(){
-        super();
-this.state= {
-    homeLink: "Home"
-};
-    }
-
-onChangeLinkName(newLink)
-{
-    alert(newLink);
-    this.setState(
-        {
-            homeLink:newLink 
-        })
-}
-
-    
-    onGreet()
-    {
-        alert("hello");
-    }
     render(){
-        var users   = {
-            Name:"vikas",
-            Hobbies :["sports", "Heading"]
-        };
-        return(
-            <div className="container"> 
-            <div className="row"><Header homelink={this.state.homeLink} ></Header>
-            </div>
-            <div>
-                <Home name = {"vik"} 
-                initialAge={27}  
-                greet={this.onGreet}
-                newlink={this.onChangeLinkName.bind(this)}
-                initiallink={this.state.homeLink}
-                >
-            
-            </Home> 
-            </div>
-            </div>
-        
-        );
+return(
+    
+    <Router >
+               
+            <div> 
+               <Route path= {"/"} component={Root} />  
+               <Switch>
+        <Route path= {"/Home"} component={Home} />       
+        <Route path= {"/user/:id"} component={User} history={history} />
+      
 
+        </Switch>
+      </div>
+        </Router>
+);
+       
     }
 }
 
